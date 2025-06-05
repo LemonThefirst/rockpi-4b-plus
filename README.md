@@ -112,7 +112,3 @@ user_overlays=sdio-fix
 sudo apt update
 sudo apt upgrade -y
 ```
-
----
-
-```
