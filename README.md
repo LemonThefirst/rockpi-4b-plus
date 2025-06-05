@@ -89,10 +89,10 @@ sudo nano /boot/overlay-user/sdio-fix.dts
 编译 overlay：
 
 ```bash
-sudo armbian-add-overlay /boot/overlay-user/sdio-fix.dts
+armbian-add-overlay /boot/overlay-user/sdio-fix.dts
 ```
 
-检查：
+检查dtbo是否生成：
 
 ```bash
 ls /boot/overlay-user/sdio-fix.dtbo
@@ -109,6 +109,23 @@ user_overlays=sdio-fix
 ## 6️⃣ 更新系统软件包
 
 ```bash
+curl 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xdf00faf1c577104b50bf1d0093d6889f9f0e78d5' |gpg --dearmor > /usr/share/keyrings/armbian.gpg
 sudo apt update
 sudo apt upgrade -y
 ```
+
+---
+
+# 📚 参考链接
+
+- **4B+ 的 DTS 描述** ： [https://github.com/radxa/kernel/blob/linux-6.1-stan-rkr5.1/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4b-plus.dts](https://github.com/radxa/kernel/blob/linux-6.1-stan-rkr5.1/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4b-plus.dts)
+
+- **Armbian 的 ROCK Pi 4 页面** ： [https://www.armbian.com/rockpi4/](https://www.armbian.com/rockpi4/)
+
+- **Armbian 社区支持镜像发布地址** ： [https://github.com/armbian/community/releases](https://github.com/armbian/community/releases)
+
+- **刷机用最新的 4B Armbian 镜像** ： [Armbian_community_25.8.0-trunk.90_Rockpi-4b_bookworm_current_6.12.31_minimal.img.xz](https://github.com/armbian/community/releases/download/25.8.0-trunk.90/Armbian_community_25.8.0-trunk.90_Rockpi-4b_bookworm_current_6.12.31_minimal.img.xz)
+
+- **兜底镜像（wlan0 挂了可用），刷完 wlan0 可恢复** ： [rockpi4b-ubuntu-bionic-minimal-20191127_1942-gpt.img.gz](https://dl.radxa.com/rockpi/images/ubuntu/rockpi4b-ubuntu-bionic-minimal-20191127_1942-gpt.img.gz)
+
+- **radax刷机文档(loader使用rk3399_loader_v1.27.126.bin)** : [https://wiki.radxa.com/Rockpi4/dev/usb-install](https://wiki.radxa.com/Rockpi4/dev/usb-install)
